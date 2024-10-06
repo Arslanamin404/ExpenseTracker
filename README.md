@@ -9,12 +9,20 @@ This is a simple expense tracker app built with **React** and **Redux Toolkit**,
 - Clear all transaction history
 - Persistent state management with Redux Toolkit
 
-## Installation
+## How It Works
 
-Follow these steps to run the project locally:
+### State Management with Redux Toolkit
 
-### 1. Clone the repository
+The app uses Redux Toolkit to manage the state for transactions. The state is initialized with an empty transactions array. The following actions are available:
 
-```bash
-git clone <repository-url>
-cd expense-tracker
+- `addTransaction`: Adds a new transaction with a unique ID, description, and amount.
+- `deleteTransaction`: Removes a transaction based on its ID.
+- `clearHistory`: Clears all transactions.
+
+
+## Technologies Used
+- `React`: A JavaScript library for building user interfaces.
+- `Redux Toolkit`: A state management library that simplifies Redux.
+
+## Contributing
+Feel free to contribute to this project by submitting issues or pull requests.
