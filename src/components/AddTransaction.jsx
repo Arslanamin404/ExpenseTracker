@@ -76,7 +76,8 @@ export const AddTransaction = () => {
         <div className="mt-8 flex items-center justify-center md:gap-5 flex-col md:flex-row">
           <button
             type="submit"
-            className="w-full rounded mt-4 md:mt-0 bg-green-700 text-gray-200 outline-none text-xs font-extrabold md:font-semibold md:text-base py-[6px] uppercase border-2 border-green-700 hover:bg-gray-200 hover:text-green-700 duration-300 hover:font-bold"
+            className="w-full rounded mt-4 md:mt-0 bg-green-700 text-gray-200 outline-none text-xs font-extrabold md:font-semibold md:text-base py-[6px] uppercase border-2 border-green-700 hover:bg-gray-200 hover:text-green-700 duration-300 hover:font-bold
+            focus:ring-2 focus:ring-green-400"
           >
             Add Transaction
           </button>
@@ -84,7 +85,7 @@ export const AddTransaction = () => {
       </form>
       <button
         onClick={handleClearHistory}
-        className="w-full rounded bg-red-700 text-gray-200 outline-none text-xs font-extrabold md:font-semibold md:text-base py-[6px] uppercase border-2 border-red-600 hover:bg-gray-200 hover:text-red-600 duration-300 hover:font-bold"
+        className="w-full rounded bg-red-700 text-gray-200 outline-none text-xs font-extrabold md:font-semibold md:text-base py-[6px] uppercase border-2 border-red-600 hover:bg-gray-200 hover:text-red-600 duration-300 hover:font-bold focus:ring-2 focus:ring-red-400"
       >
         Clear History
       </button>
