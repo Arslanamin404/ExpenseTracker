@@ -27,7 +27,7 @@ export const IncomeExpense = () => {
           expense
         </h4>
         <h2 className="font-semibold text-lg md:text-xl text-red-600">
-          &#x20b9;{expense}
+          &#x20b9;{expense*-1}
         </h2>
       </div>
     </div>
