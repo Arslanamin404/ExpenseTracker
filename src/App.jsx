@@ -6,7 +6,7 @@ import { AddTransaction } from "./components/AddTransaction";
 
 function App() {
   return (
-    <div className="w-[21rem] md:w-[26rem] px-6 pt-1 pb-8 md:pb-5 h-auto my-6 md:my-2 bg-gray-900">
+    <div className="rounded-lg w-[21rem] md:w-[26rem] px-6 pt-1 pb-8 md:pb-5 h-auto my-6 md:my-2 bg-gray-900">
       <Header />
       <Balance />
       <IncomeExpense />
