@@ -8,14 +8,10 @@ const initialState = {
     //   date: new Date(Date.now()).toLocaleString(),
     //   description: "Salary",
     //   amount: 5000,
-    // },
-    // {
-    //   id: 2,
-    //   date: new Date(Date.now()).toLocaleString(),
-    //   description: "Groceries",
-    //   amount: -200,
+    //   type: income,
     // },
   ],
+  searchQuery: "",
 };
 
 export const expensesSlice = createSlice({
@@ -27,7 +23,8 @@ export const expensesSlice = createSlice({
         id: nanoid(),
         date: new Date(Date.now()).toLocaleString(),
         description: action.payload.description,
-        amount: action.payload.amount
+        amount: action.payload.amount,
+        type: action.payload.type
       }
       state.transactions.push(expense)
     },
@@ -37,11 +34,11 @@ export const expensesSlice = createSlice({
         transaction.id !== action.payload
       )
     },
-    clearHistory: (state) => {
-      state.transactions = []
+    setSearchQuery: (state, action) => {
+      state.searchQuery = action.payload
     },
   }
 })
 
-export const { addTransaction, deleteTransaction, clearHistory } = expensesSlice.actions
+export const { addTransaction, deleteTransaction, setSearchQuery } = expensesSlice.actions
 export default expensesSlice.reducer

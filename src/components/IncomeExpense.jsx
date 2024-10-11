@@ -2,16 +2,15 @@ import { useSelector } from "react-redux";
 
 export const IncomeExpense = () => {
   const transactions = useSelector((state) => state.transactions);
-  const amounts = transactions.map((transaction) => transaction.amount);
 
-  const income = amounts
-    .filter((amount) => amount > 0)
-    .reduce((acc, current) => acc + current, 0);
+  const income = transactions
+    .filter((transaction) => transaction.type === "income")
+    .reduce((acc, transaction) => acc + transaction.amount, 0);
 
-  const expense =
-    amounts
-      .filter((amount) => amount < 0)
-      .reduce((acc, current) => acc + current, 0);
+  const expense = transactions
+    .filter((transaction) => transaction.type === "expense")
+    .reduce((acc, transaction) => acc - transaction.amount, 0);
+
   return (
     <div className="flex items-center justify-center py-3 md:py-2 w-full my-4 bg-gray-200 shadow-lg shadow-gray-500/10">
       <div id="income" className="border-r border-gray-500 pr-10">
@@ -27,7 +26,7 @@ export const IncomeExpense = () => {
           expense
         </h4>
         <h2 className="font-semibold text-lg md:text-xl text-red-600">
-          &#x20b9;{expense*-1}
+          &#x20b9;{expense}
         </h2>
       </div>
     </div>
