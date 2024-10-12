@@ -53,7 +53,7 @@ export const TransactionList = () => {
         {filteredTransactions.map((transaction) => (
           <div key={transaction.id}>
             <span className="text-xs font-semibold">{transaction.date}</span>
-            <div className="flex items-stretch justify-between mb-2">
+            <div className="flex items-stretch justify-between mb-1">
               <li
                 className={`border-l-[6px] w-full ${
                   transaction.type === "expense"
