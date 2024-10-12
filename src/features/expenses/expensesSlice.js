@@ -37,6 +37,17 @@ export const expensesSlice = createSlice({
         transaction.id !== action.payload
       )
     },
+    updateTransaction: (state, action) => {
+      const { id, description, amount, date, type } = action.payload
+      const transactionToUpdate = state.transactions.find((transaction) => transaction.id === id)
+      if (transactionToUpdate) {
+        transactionToUpdate.description = description;
+        transactionToUpdate.amount = amount;
+        transactionToUpdate.date = date;
+        transactionToUpdate.type = type;
+      }
+    },
+
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload
     },
@@ -46,5 +57,5 @@ export const expensesSlice = createSlice({
   }
 })
 
-export const { addTransaction, deleteTransaction, setSearchQuery,setSortFilter } = expensesSlice.actions
+export const { addTransaction,updateTransaction, deleteTransaction, setSearchQuery, setSortFilter } = expensesSlice.actions
 export default expensesSlice.reducer

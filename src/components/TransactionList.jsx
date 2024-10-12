@@ -1,4 +1,4 @@
-import { MdDeleteForever } from "react-icons/md";
+import { MdDeleteForever, MdEdit } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTransaction } from "../features/expenses/expensesSlice";
 import { Input, Select } from "@chakra-ui/react";
@@ -6,12 +6,14 @@ import {
   setSearchQuery,
   setSortFilter,
 } from "../features/expenses/expensesSlice";
+import { useNavigate } from "react-router-dom";
 
 export const TransactionList = () => {
   const transactions = useSelector((state) => state.transactions);
   const searchQuery = useSelector((state) => state.searchQuery);
   const filter = useSelector((state) => state.sortFilter);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Filter transactions based on search query and dropdown filter
   const filteredTransactions = transactions
@@ -72,12 +74,20 @@ export const TransactionList = () => {
                   &#x20b9;{transaction.amount}
                 </span>
               </li>
+              <div className="flex justify-center">
+              <button
+                onClick={() => navigate(`/updateTransaction/${transaction.id}`)}
+                className="bg-green-700 px-2 py-1 md:px-2 font-semibold border-2 border-green-700 text-gray-200 hover:bg-gray-300 hover:text-green-700 duration-300 flex items-center justify-center h-auto"
+              >
+                <MdEdit className="text-xl" />
+              </button>
               <button
                 onClick={() => dispatch(deleteTransaction(transaction.id))}
                 className="bg-red-700 px-2 py-1 md:px-2 font-semibold border-2 border-red-700 text-gray-200 hover:bg-gray-300 hover:text-red-700 duration-300 flex items-center justify-center h-auto"
               >
                 <MdDeleteForever className="text-xl" />
               </button>
+              </div>
             </div>
           </div>
         ))}
