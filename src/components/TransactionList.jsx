@@ -1,7 +1,7 @@
 import { MdArrowDropDown, MdDeleteForever } from "react-icons/md";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteTransaction } from "../features/expenses/expensesSlice";
-import { Input, Select } from "@chakra-ui/react";
+import { Input } from "@chakra-ui/react";
 import { setSearchQuery } from "../features/expenses/expensesSlice";
 
 export const TransactionList = () => {

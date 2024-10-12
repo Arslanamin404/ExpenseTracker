@@ -16,20 +16,20 @@ import {
   ModalFooter,
   Radio,
   RadioGroup,
-  useRadio,
   Stack,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
-import { style } from "framer-motion/client";
 
 export const AddTransaction = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
-  const [value, setValue] = React.useState("");
+
+  const today = new Date().toLocaleDateString("en-ca");
 
   const [expense, setExpense] = useState("");
   const [expenseAmount, setExpenseAmount] = useState(0);
+  const [expenseDate, setExpenseDate] = useState(today);
   const [transactionType, setTransactionType] = useState("income");
   const dispatch = useDispatch();
 
@@ -40,6 +40,7 @@ export const AddTransaction = () => {
         addTransaction({
           description: expense,
           amount: parseFloat(expenseAmount),
+          date: expenseDate,
           type: transactionType,
         })
       );
@@ -95,6 +96,16 @@ export const AddTransaction = () => {
                   type="number"
                   value={expenseAmount}
                   onChange={(e) => setExpenseAmount(e.target.value)}
+                />
+              </FormControl>
+              <FormControl mt={4}>
+                <FormLabel>Date</FormLabel>
+                <Input
+                  placeholder="Date"
+                  type="date"
+                  value={expenseDate}
+                  max={today}
+                  onChange={(e) => setExpenseDate(e.target.value)}
                 />
               </FormControl>
               <FormControl mt={5}>

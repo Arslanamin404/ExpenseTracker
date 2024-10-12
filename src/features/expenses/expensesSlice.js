@@ -9,6 +9,7 @@ const initialState = {
     //   description: "Salary",
     //   amount: 5000,
     //   type: income,
+    //   date: 12/10/2024,
     // },
   ],
   searchQuery: "",
@@ -21,9 +22,9 @@ export const expensesSlice = createSlice({
     addTransaction: (state, action) => {
       const expense = {
         id: nanoid(),
-        date: new Date(Date.now()).toLocaleString(),
         description: action.payload.description,
         amount: action.payload.amount,
+        date: action.payload.date,
         type: action.payload.type
       }
       state.transactions.push(expense)
