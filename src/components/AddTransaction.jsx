@@ -47,6 +47,7 @@ export const AddTransaction = () => {
 
       setExpense("");
       setExpenseAmount(0);
+      setExpenseDate(today);
       setTransactionType("income");
       onClose();
     }

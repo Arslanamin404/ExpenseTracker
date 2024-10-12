@@ -1,3 +1,4 @@
+import { filter } from "@chakra-ui/react";
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 
@@ -13,6 +14,7 @@ const initialState = {
     // },
   ],
   searchQuery: "",
+  sortFilter: "all"
 };
 
 export const expensesSlice = createSlice({
@@ -38,8 +40,11 @@ export const expensesSlice = createSlice({
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload
     },
+    setSortFilter: (state, action) => {
+      state.sortFilter = action.payload
+    }
   }
 })
 
-export const { addTransaction, deleteTransaction, setSearchQuery } = expensesSlice.actions
+export const { addTransaction, deleteTransaction, setSearchQuery,setSortFilter } = expensesSlice.actions
 export default expensesSlice.reducer
